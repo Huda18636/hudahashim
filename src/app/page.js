@@ -1,29 +1,42 @@
 import Image from "next/image";
+import Link from "next/link"; // ✅ Import Link from next/link
 import { Item, User } from "./components/Item";
 
 export default function Home() {
   return (
     <div>
-  <h1 className="text-2xl font-bold text-center my-4 flex items-center justify-center">
-    <img src="nmlogo.jpg" alt="Icon" className="h-15 mr-2" /> {/* Image as icon */}
-    Nia Mia
-  </h1>
-<div className="bg-gray-100">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4 py-8">
-    {items.map((item, index) => (
-      <Item
-        key={index}
-        itemName={item.itemName}
-        itemDescription={item.itemDescription}
-        itemImage={item.itemImage}
-        itemPrice={item.itemPrice}
-      />
-    ))}
-  </div>
-  </div>
-</div>
+      <div className="flex items-center justify-between px-4 py-4">
+        <h1 className="text-2xl font-bold flex items-center">
+          <img src="nmlogo.jpg" alt="Icon" className="h-10 w-10 mr-2 object-contain" />
+          Nia Mia
+        </h1>
+        <Link
+          href="/contacts"
+          className="text-black-600 underline hover:text-black-800 transition text-sm md:text-base"
+        >
+          Contact Us
+        </Link>
+      </div>
+
+      <div className="bg-gray-100">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-4 py-8">
+          {items.map((item, index) => (
+            <Item
+              key={index}
+              itemName={item.itemName}
+              itemDescription={item.itemDescription}
+              itemImage={item.itemImage}
+              itemPrice={item.itemPrice}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
+
+
+
 const items = [
 
   { itemName: "Luna", itemDescription: "hello hellloo helllooo", itemImage: "https://niamiaofficial.com/cdn/shop/files/1_22a6f14d-8cee-43f0-addc-2b7b4ef62143.jpg?v=1740468965", itemPrice: "13,000" },
